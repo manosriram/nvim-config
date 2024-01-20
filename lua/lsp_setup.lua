@@ -1,8 +1,12 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
-lsp.ensure_installed({
-    'pyright'
+require('mason').setup({})
+require('mason-lspconfig').setup({
+		ensure_installed = { 'pyright' },
+		handlers = {
+				lsp.default_setup,
+		},
 })
 
 local cmp = require('cmp')
@@ -14,7 +18,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
-lsp.setup_nvim_cmp({
+cmp.setup({
   mapping = cmp_mappings
 })
 
