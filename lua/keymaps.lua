@@ -21,8 +21,8 @@ nmap("K", ":Rg<CR>")
 nmap(";b", ":Buffers<CR>")
 nmap(";f", ":Files<CR>")
 nmap(";w", ":Windows<CR>")
-nrmap("f", "<Plug>Lightspeed_s")
-nrmap("F", "<Plug>Lightspeed_S")
+nrmap("f", "<Plug>(leap-forward)")
+nrmap("F", "<Plug>(leap-backward)")
 nmap("gm", ":GitMessenger<CR>")
 nmap("gc", ":GitMessengerClose<CR>")
 nmap("gd", ":call CocActionAsync('jumpDefinition')<CR>")
@@ -33,6 +33,11 @@ map('n', "<C-l>", '<CMD>NavigatorRight<CR>')
 map('n', "<C-k>", '<CMD>NavigatorUp<CR>')
 map('n', "<C-j>", '<CMD>NavigatorDown<CR>')
 map('n', "<C-p>", '<CMD>NavigatorPrevious<CR>')
+
+vim.keymap.set('n', '<leader>d', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', '<leader>r', '<CMD>Glance references<CR>')
+vim.keymap.set('n', '<leader>y', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', '<leader>m', '<CMD>Glance implementations<CR>')
 
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
