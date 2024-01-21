@@ -3,7 +3,7 @@ lsp.preset('recommended')
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-		ensure_installed = { 'pyright' },
+		ensure_installed = { 'pyright', 'gopls' },
 		handlers = {
 				lsp.default_setup,
 		},
