@@ -73,15 +73,15 @@ g.go_doc_keywordprg_enabled = 0
 g.go_auto_type_info = 1
 g.to_imports_mode = 'gopls'
 g.go_gopls_enabled = 1
-g.ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 g.go_info_mode = 'guru'
 g.go_auto_type_info = 'gopls'
 g.NERDSpaceDelims = 1
 g.NERDTreeDirArrows = 0
 g.user_emmet_leader_key=','
-g.qs_highlight_on_keys={'f', 'F'}
 
 -- vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
 vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")
+
+vim.cmd([[highlight link TelescopeSelection Search]])
