@@ -85,3 +85,5 @@ vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, si
 vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")
 
 vim.cmd([[highlight link TelescopeSelection Search]])
+vim.api.nvim_set_keymap('n', 'n', 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })

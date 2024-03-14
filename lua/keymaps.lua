@@ -16,10 +16,6 @@ nmap("<Leader>l", ":tabnext<CR>")
 nmap("<Leader>h", ":tabprev<CR>")
 nmap("<Leader>t", ":tabnew<CR>")
 nmap("<Leader>x", ":tabclose<CR>")
--- nmap("K", ":Rg<CR>")
--- nmap(";b", ":Buffers<CR>")
--- nmap(";f", ":Files<CR>")
-nmap(";w", ":Windows<CR>")
 nrmap("f", "<Plug>(leap-forward)")
 nrmap("F", "<Plug>(leap-backward)")
 nmap("mm", ":b#<CR>")
@@ -49,7 +45,6 @@ vim.keymap.set('n', ';b', builtin.buffers, {})
 vim.keymap.set('n', 'K', function ()
 		builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
--- vim.keymap.set('n', 'K', builtin.live_grep, {})
 
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
@@ -63,3 +58,4 @@ vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
     desc = "Search on current file"
 })
+vim.keymap.set('n', '<leader>n', ':lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
