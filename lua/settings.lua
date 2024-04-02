@@ -38,8 +38,8 @@ cmd([[
 	set t_vb=
 	filetype plugin on
 	set encoding=UTF-8
-	set guicursor=i:hor25-iCursor
-	set guicursor+=n:block-Cursor/lCursor
+	set guicursor+=n:hor10-Cursor/lCursor
+	set guicursor+=i:hor10-Cursor/lCursor
 
 	set bg=dark
 	set background=dark
@@ -78,6 +78,8 @@ g.go_auto_type_info = 'gopls'
 g.NERDSpaceDelims = 1
 g.NERDTreeDirArrows = 0
 g.user_emmet_leader_key=','
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })

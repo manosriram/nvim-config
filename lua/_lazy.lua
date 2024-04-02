@@ -12,4 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
-require("lazy").setup("plugins")
+require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } })
