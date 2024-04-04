@@ -7,7 +7,17 @@ return {
 				"rcarriga/nvim-dap-ui",
 				"mfussenegger/nvim-dap-python",
 				"leoluz/nvim-dap-go",
-				"mrcjkb/rustaceanvim",
+				{ "simrat39/rust-tools.nvim",
+						config = function()
+							dap = {
+								adapter = {
+									type = "executable",
+									command = "lldb",
+									name = "rt_lldb"
+								}
+							}
+						end
+				}
 		},
 		config = function()
 				local dap = require("dap")
@@ -37,5 +47,56 @@ return {
 
 				require('dap-go').setup()
 				require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+
+						
+				local rt = require("rust-tools")
+				local mason_registry = require("mason-registry")
+
+				local codelldb = mason_registry.get_package("codelldb")
+				local extension_path = codelldb:get_install_path() .. "/extension"
+				local codelldb_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb"
+				local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+
+				dap.adapters.lldb = {
+						type = "server",
+						port = "${port}",
+						executable = {
+								command = codelldb_path,
+								args = { "--port", "${port}" },
+								detached = false,
+								stopOnEntry = false
+						}
+				}
+
+				rt.setup({
+						dap = {
+								adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+						},
+						server = {
+								capabilities = require("cmp_nvim_lsp").default_capabilities(),
+								-- on_attach = function(_, bufnr)
+
+								-- end
+						},
+						tools = {
+								hover_actions = {
+										auto_focus = true,
+								}
+						}
+				})
+
+				dap.configurations.rust = {
+						{
+								name = "Debug an Executable",
+								type = "lldb",
+								request = "launch",
+								program = function()
+										return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
+								end,
+								cwd = "${workspaceFolder}",
+								stopOnEntry = false,
+								showDisassembly = false
+						}
+				}
 		end
 }
