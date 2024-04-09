@@ -81,11 +81,11 @@ g.user_emmet_leader_key=','
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
--- vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", { noremap = false, silent = true })
+
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
 vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")
-
+-- vim.cmd("colorscheme kanagawa-dragon")
 vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'n', 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
