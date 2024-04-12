@@ -99,16 +99,24 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure python server
+    -- configure go server
     lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure python server
+    -- configure rust server
     lspconfig["rust_analyzer"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    -- configure vlang server
+    lspconfig["v_analyzer"].setup({
+		  filetypes={"v"},
+      capabilities = capabilities,
+      on_attach = on_attach,
+		  cmd = {"/Users/manosriram/.config/v-analyzer/bin/v-analyzer"},
     })
   end,
   on_attach = on_attach

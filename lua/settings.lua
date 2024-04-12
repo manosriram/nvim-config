@@ -66,7 +66,10 @@ cmd([[
 	set termguicolors     " enable true colors support
 	highlight LineNr guifg=white
 	highlight Pmenu guibg=#2C3E50 gui=bold
+
 	highlight EndOfBuffer ctermfg=white
+
+
 ]])
 
 g.go_doc_keywordprg_enabled = 0
@@ -82,6 +85,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 
+vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
 vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")

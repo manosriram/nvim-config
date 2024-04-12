@@ -7,7 +7,7 @@ return {
 		config = function()
 				require("mason").setup()
 				require("mason-lspconfig").setup({
-						ensure_installed = { "pyright", "gopls", "rust_analyzer" }
+						ensure_installed = { "pyright", "gopls", "rust_analyzer", "v_analyzer" }
 				})
 		end
 }
