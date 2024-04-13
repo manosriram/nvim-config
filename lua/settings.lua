@@ -38,17 +38,19 @@ cmd([[
 	set t_vb=
 	filetype plugin on
 	set encoding=UTF-8
-	set guicursor+=n:hor10-Cursor/lCursor
-	set guicursor+=i:hor10-Cursor/lCursor
 
 	set bg=dark
 	set background=dark
-	colorscheme jellybeans
+  let g:gruvbox_contrast_dark='hard'
+  let g:gruvbox_contrast_light='hard'
 	let g:gruvbox_contrast_dark = 'hard'
+  colorscheme gruvbox
 
 	hi Visual term=reverse cterm=reverse guibg=White
 	let base16colorspace=256
 
+set guicursor+=n:hor10-Cursor/lCursor
+set guicursor+=i:hor10-Cursor/lCursor
 	set backspace=indent,eol,start
 	set tabstop=2 softtabstop=4 shiftwidth=4
 	set noexpandtab
@@ -66,10 +68,7 @@ cmd([[
 	set termguicolors     " enable true colors support
 	highlight LineNr guifg=white
 	highlight Pmenu guibg=#2C3E50 gui=bold
-
 	highlight EndOfBuffer ctermfg=white
-
-
 ]])
 
 g.go_doc_keywordprg_enabled = 0
@@ -89,7 +88,6 @@ vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
 vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")
--- vim.cmd("colorscheme kanagawa-dragon")
 vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'n', 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })

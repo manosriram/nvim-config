@@ -50,25 +50,19 @@ nrmap("<Leader>gsp", ":G stash pop<CR>")
 nrmap("<Leader>gsl", ":G stash list<CR>")
 
 -- move through quickfix window lsp references
-nrmap("<C-1>", ":cnext<CR>")
-nrmap("<C-2>", ":cprev<CR>")
+nrmap("]q", ":cnext<CR>")
+nrmap("[q", ":cprev<CR>")
+nrmap("]Q", ":.cc<CR>")
 nrmap("<C-w>o", ":copen<CR>")
 nrmap("<C-w>c", ":cclose<CR>")
-nrmap("]o", ":.cc<CR>")
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.references() end, opts)
-
--- Glance
--- vim.keymap.set("n", "<leader>d", "<CMD>Glance definitions<CR>")
--- vim.keymap.set("n", "<leader>r", "<CMD>Glance references<CR>")
--- vim.keymap.set("n", "<leader>y", "<CMD>Glance type_definitions<CR>")
--- vim.keymap.set("n", "<leader>m", "<CMD>Glance implementations<CR>")
 
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", ";f", builtin.find_files, {})
 vim.keymap.set("n", ";g", builtin.git_files, {})
 vim.keymap.set("n", ";b", builtin.buffers, {})
-vim.keymap.set("n", "K", function ()
+vim.keymap.set("n", "<leader>K", function ()
 		builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
