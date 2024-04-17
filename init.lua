@@ -19,6 +19,10 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
-require 'settings'
-require '_lazy'
-require 'keymaps'
+function InitialRequire()
+		require 'settings'
+		require 'lazy_manager'
+		require 'statusline'
+		require 'keymaps'
+end
+InitialRequire()

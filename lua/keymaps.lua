@@ -5,21 +5,38 @@ require("Navigator").up()
 require("Navigator").down()
 require("Navigator").previous()
 
-nmap(",v", ":vsplit<CR>")
-nmap(",h", ":split<CR>")
-nmap("<C-e>", ":set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>")
-nmap("<Enter>", "o<ESC>")
-nmap("z", "dd")
-nmap("<C-b>", ":NvimTreeFocus<CR>")
-nmap("<C-n>", ":NvimTreeToggle<CR>")
-nmap("<C-f>", ":NvimTreeFindFileToggle<CR>")
-nmap("<Leader>l", ":tabnext<CR>")
-nmap("<Leader>h", ":tabprev<CR>")
-nmap("<Leader>t", ":tabnew<CR>")
-nmap("<Leader>x", ":tabclose<CR>")
-nrmap("f", "<Plug>(leap-forward)")
-nrmap("F", "<Plug>(leap-backward)")
-nmap("mm", ":b#<CR>")
+function Map(mode, shortcut, command, noremap)
+    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = noremap, silent = true })
+end
+
+function Nrmap(shortcut, command)
+    Map('n', shortcut, command, false)
+end
+
+function Nmap(shortcut, command)
+    Map('n', shortcut, command, true)
+end
+
+function Imap(shortcut, command)
+    Map('i', shortcut, command, true)
+end
+
+
+Nmap(",v", ":vsplit<CR>")
+Nmap(",h", ":split<CR>")
+Nmap("<C-e>", ":set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>")
+Nmap("<Enter>", "o<ESC>")
+Nmap("z", "dd")
+Nmap("<C-b>", ":NvimTreeFocus<CR>")
+Nmap("<C-n>", ":NvimTreeToggle<CR>")
+Nmap("<C-f>", ":NvimTreeFindFileToggle<CR>")
+Nmap("<Leader>l", ":tabnext<CR>")
+Nmap("<Leader>h", ":tabprev<CR>")
+Nmap("<Leader>t", ":tabnew<CR>")
+Nmap("<Leader>x", ":tabclose<CR>")
+Nrmap("f", "<Plug>(leap-forward)")
+Nrmap("F", "<Plug>(leap-backward)")
+Nmap("mm", ":b#<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -29,32 +46,32 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Navigator
-map("n", "<C-h>", "<CMD>NavigatorLeft<CR>") map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
-map("n", "<C-k>", "<CMD>NavigatorUp<CR>")
-map("n", "<C-j>", "<CMD>NavigatorDown<CR>")
-map("n", "<C-p>", "<CMD>NavigatorPrevious<CR>")
+Map("n", "<C-h>", "<CMD>NavigatorLeft<CR>") Map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
+Map("n", "<C-k>", "<CMD>NavigatorUp<CR>")
+Map("n", "<C-j>", "<CMD>NavigatorDown<CR>")
+Map("n", "<C-p>", "<CMD>NavigatorPrevious<CR>")
 
 -- vim-fugitive
-nrmap("<Leader>gg", ":G<CR>")
-nrmap("<Leader>d", ":G diff<CR>")
-nrmap("<Leader>gl", ":G log<CR>")
-nrmap("<Leader>gb", ":G branch<CR>")
-nrmap("<Leader>gc", ":G commit<CR>")
-nrmap("<Leader>gS", ":G status<CR>")
-nrmap("<Leader>gaa", ":G add .<CR>")
-nrmap("<Leader>gcc", ":G checkout ")
-nrmap("<Leader>gst", ":G stash<CR>") -- stash only tracked files
-nrmap("<Leader>gsu", ":G stash -u<CR>") -- stash untracked files
-nrmap("<Leader>gsa", ":G stash apply<CR>")
-nrmap("<Leader>gsp", ":G stash pop<CR>")
-nrmap("<Leader>gsl", ":G stash list<CR>")
+Nrmap("<Leader>gg", ":G<CR>")
+Nrmap("<Leader>d", ":G diff<CR>")
+Nrmap("<Leader>gl", ":G log<CR>")
+Nrmap("<Leader>gb", ":G branch<CR>")
+Nrmap("<Leader>gc", ":G commit<CR>")
+Nrmap("<Leader>gS", ":G status<CR>")
+Nrmap("<Leader>gaa", ":G add .<CR>")
+Nrmap("<Leader>gcc", ":G checkout ")
+Nrmap("<Leader>gst", ":G stash<CR>") -- stash only tracked files
+Nrmap("<Leader>gsu", ":G stash -u<CR>") -- stash untracked files
+Nrmap("<Leader>gsa", ":G stash apply<CR>")
+Nrmap("<Leader>gsp", ":G stash pop<CR>")
+Nrmap("<Leader>gsl", ":G stash list<CR>")
 
 -- move through quickfix window lsp references
-nrmap("]q", ":cnext<CR>")
-nrmap("[q", ":cprev<CR>")
-nrmap("]Q", ":.cc<CR>")
-nrmap("<C-w>o", ":copen<CR>")
-nrmap("<C-w>c", ":cclose<CR>")
+Nrmap("]q", ":cnext<CR>")
+Nrmap("[q", ":cprev<CR>")
+Nrmap("]Q", ":.cc<CR>")
+Nrmap("<C-w>o", ":copen<CR>")
+Nrmap("<C-w>c", ":cclose<CR>")
 vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.references() end, opts)
 
 -- Telescope

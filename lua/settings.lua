@@ -1,28 +1,9 @@
-local cmd = vim.cmd
-local g = vim.g
-
-function map(mode, shortcut, command, noremap)
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = noremap, silent = true })
-end
-
-function nrmap(shortcut, command)
-    map('n', shortcut, command, false)
-end
-
-function nmap(shortcut, command)
-    map('n', shortcut, command, true)
-end
-
-function imap(shortcut, command)
-    map('i', shortcut, command, true)
-end
-
 -- Highlight coloring
-cmd('hi Visual cterm=NONE ctermbg=0 ctermfg=NONE')
-cmd('hi Search cterm=NONE ctermbg=0 ctermfg=white')
-cmd('hi Pmenu cterm=NONE ctermbg=white ctermfg=0')
-cmd('hi MatchParen cterm=NONE ctermbg=NONE ctermfg=green')
-cmd([[
+vim.cmd('hi Visual cterm=NONE ctermbg=0 ctermfg=NONE')
+vim.cmd('hi Search cterm=NONE ctermbg=0 ctermfg=white')
+vim.cmd('hi Pmenu cterm=NONE ctermbg=white ctermfg=0')
+vim.cmd('hi MatchParen cterm=NONE ctermbg=NONE ctermfg=green')
+vim.cmd([[
 	set nocompatible              " be iMproved, required
 
 	filetype off                  " required
@@ -44,13 +25,12 @@ cmd([[
   let g:gruvbox_contrast_dark='hard'
   let g:gruvbox_contrast_light='hard'
 	let g:gruvbox_contrast_dark = 'hard'
-  colorscheme gruvbox
 
-	hi Visual term=reverse cterm=reverse guibg=White
 	let base16colorspace=256
 
-set guicursor+=n:hor10-Cursor/lCursor
-set guicursor+=i:hor10-Cursor/lCursor
+	hi Visual term=reverse cterm=reverse guibg=White
+  set guicursor+=n:hor10-Cursor/lCursor
+  set guicursor+=i:hor10-Cursor/lCursor
 	set backspace=indent,eol,start
 	set tabstop=2 softtabstop=4 shiftwidth=4
 	set noexpandtab
@@ -71,23 +51,21 @@ set guicursor+=i:hor10-Cursor/lCursor
 	highlight EndOfBuffer ctermfg=white
 ]])
 
-g.go_doc_keywordprg_enabled = 0
-g.go_auto_type_info = 1
-g.to_imports_mode = 'gopls'
-g.go_gopls_enabled = 1
-g.go_info_mode = 'guru'
-g.go_auto_type_info = 'gopls'
-g.NERDSpaceDelims = 1
-g.NERDTreeDirArrows = 0
-g.user_emmet_leader_key=','
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-
+vim.g.go_doc_keywordprg_enabled = 0
+vim.g.go_auto_type_info = 1
+vim.g.to_imports_mode = 'gopls'
+vim.g.go_gopls_enabled = 1
+vim.g.go_info_mode = 'guru'
+vim.g.go_auto_type_info = 'gopls'
+vim.g.NERDSpaceDelims = 1
+vim.g.NERDTreeDirArrows = 0
+vim.g.user_emmet_leader_key=','
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
+vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
-vim.cmd("let g:lightline = {'colorscheme': 'simpleblack'}")
-vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'n', 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })

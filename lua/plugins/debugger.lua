@@ -48,7 +48,6 @@ return {
 				require('dap-go').setup()
 				require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
-						
 				local rt = require("rust-tools")
 				local mason_registry = require("mason-registry")
 
