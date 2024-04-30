@@ -29,8 +29,6 @@ vim.cmd([[
 	let base16colorspace=256
 
 	hi Visual term=reverse cterm=reverse guibg=White
-  set guicursor+=n:hor10-Cursor/lCursor
-  set guicursor+=i:hor10-Cursor/lCursor
 	set backspace=indent,eol,start
 	set tabstop=2 softtabstop=4 shiftwidth=4
 	set noexpandtab
@@ -63,6 +61,7 @@ vim.g.user_emmet_leader_key=','
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd("colorscheme kanagawa-dragon")
 vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
 vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })

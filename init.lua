@@ -20,9 +20,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 function InitialRequire()
-		require 'settings'
 		require 'lazy_manager'
 		require 'statusline'
 		require 'keymaps'
+		require 'settings'
 end
 InitialRequire()

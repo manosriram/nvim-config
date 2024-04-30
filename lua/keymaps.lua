@@ -53,18 +53,19 @@ Map("n", "<C-p>", "<CMD>NavigatorPrevious<CR>")
 
 -- vim-fugitive
 Nrmap("<Leader>gg", ":G<CR>")
-Nrmap("<Leader>d", ":G diff<CR>")
+Nrmap("<Leader>gd", ":G diff<CR>")
 Nrmap("<Leader>gl", ":G log<CR>")
-Nrmap("<Leader>gb", ":G branch<CR>")
+Nrmap("<Leader>gb", ":G blame<CR>")
+Nrmap("<Leader>gB", ":G branch<CR>")
 Nrmap("<Leader>gc", ":G commit<CR>")
-Nrmap("<Leader>gS", ":G status<CR>")
+Nrmap("<Leader>gs", ":G status<CR>")
 Nrmap("<Leader>gaa", ":G add .<CR>")
 Nrmap("<Leader>gcc", ":G checkout ")
-Nrmap("<Leader>gst", ":G stash<CR>") -- stash only tracked files
-Nrmap("<Leader>gsu", ":G stash -u<CR>") -- stash untracked files
-Nrmap("<Leader>gsa", ":G stash apply<CR>")
-Nrmap("<Leader>gsp", ":G stash pop<CR>")
-Nrmap("<Leader>gsl", ":G stash list<CR>")
+Nrmap("<Leader>gSt", ":G stash<CR>") -- stash only tracked files
+Nrmap("<Leader>gSu", ":G stash -u<CR>") -- stash untracked files
+Nrmap("<Leader>gSa", ":G stash apply<CR>")
+Nrmap("<Leader>gSp", ":G stash pop<CR>")
+Nrmap("<Leader>gSl", ":G stash list<CR>")
 
 -- move through quickfix window lsp references
 Nrmap("]q", ":cnext<CR>")
