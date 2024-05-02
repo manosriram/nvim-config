@@ -48,6 +48,7 @@ function StatusLine()
 			'[%{mode()}]',
 			' %t',
 			'%r',
+		  '%{&mod == 1 and "[%+]" or "[]"}',
 			'%=',
 			'%{&filetype} ',
 			' %2p%% ',
