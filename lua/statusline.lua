@@ -1,12 +1,6 @@
 function StatusLine()
 		local cmp = {} -- statusline components
 
-		--- highlight pattern
-		-- This has three parts: 
-		-- 1. the highlight group
-		-- 2. text content
-		-- 3. special sequence to restore highlight: %*
-		-- Example pattern: %#SomeHighlight#some-text%*
 		local hi_pattern = '%%#%s#%s%%*'
 
 		function _G._statusline_component(name)
@@ -43,12 +37,20 @@ function StatusLine()
 			return hi_pattern:format('Search',' %3l:%-2c ')
 		end
 
+		function _statusline_mod()
+				if vim.bo.mod then
+						return "[+]"
+				else
+						return "[ ]"
+				end
+		end
+
 		local statusline = {
 			'%{%v:lua._statusline_component("diagnostic_status")%} ',
 			'[%{mode()}]',
 			' %t',
 			'%r',
-		  '%{&mod == 1 and "[%+]" or "[]"}',
+		  '%{%v:lua._statusline_mod()%}',
 			'%=',
 			'%{&filetype} ',
 			' %2p%% ',
