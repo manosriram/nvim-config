@@ -39,9 +39,9 @@ function StatusLine()
 
 		function _statusline_mod()
 				if vim.bo.mod then
-						return "[+]"
+						return " [+]"
 				else
-						return "[ ]"
+						return " [ ]"
 				end
 		end
 
