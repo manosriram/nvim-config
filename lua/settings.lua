@@ -44,9 +44,6 @@ vim.cmd([[
 	set timeoutlen=3000
 	set t_Co=256
 	set termguicolors     " enable true colors support
-	highlight LineNr guifg=white
-	highlight Pmenu guibg=#2C3E50 gui=bold
-	highlight EndOfBuffer ctermfg=white
 ]])
 
 vim.g.go_doc_keywordprg_enabled = 0
@@ -61,7 +58,9 @@ vim.g.user_emmet_leader_key=','
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme jellybeans")
+vim.cmd("highlight StatusLine cterm=NONE ctermbg=black ctermfg=white guibg=#000000 guifg=#ffffff")
+-- vim.cmd("colorscheme kanagawa-dragon")
 vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
 vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })

@@ -45,6 +45,8 @@ function StatusLine()
 				end
 		end
 
+		local hi_pattern = 'highlight StatusLine cterm=NONE ctermbg=black ctermfg=white guibg=#000000 guifg=#ffffff'
+
 		local statusline = {
 			'%{%v:lua._statusline_component("diagnostic_status")%} ',
 			'[%{mode()}]',
