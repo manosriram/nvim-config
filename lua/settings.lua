@@ -58,12 +58,9 @@ vim.g.user_emmet_leader_key=','
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- vim.cmd("colorscheme jellybeans")
 vim.cmd("colorscheme kanagawa-dragon")
 vim.cmd("highlight StatusLine cterm=NONE ctermbg=black ctermfg=white guibg=#000000 guifg=#ffffff")
 vim.cmd([[autocmd BufNewFile,BufRead *.v set filetype=v]])
 vim.cmd([[highlight link TelescopeSelection Search]])
 vim.api.nvim_set_keymap('n', 'f', '<Plug>(leap-forward)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'F', '<Plug>(leap-backward)', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', 'n', 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'N', 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
