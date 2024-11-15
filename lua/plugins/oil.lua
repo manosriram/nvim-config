@@ -1,7 +1,7 @@
 return {
-		'stevearc/oil.nvim',
-		opts = {},
-		config = function ()
+	'stevearc/oil.nvim',
+	opts = {},
+	config = function ()
 		require("oil").setup({
 			-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
 			-- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
@@ -183,5 +183,5 @@ return {
 				border = "rounded",
 			},
 		})
-		end
+	end
 }

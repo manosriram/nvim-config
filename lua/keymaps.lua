@@ -81,7 +81,7 @@ vim.keymap.set("n", ";f", builtin.find_files, {})
 vim.keymap.set("n", ";g", builtin.git_files, {})
 vim.keymap.set("n", ";b", builtin.buffers, {})
 vim.keymap.set("n", "<leader>K", function ()
-		builtin.grep_string({ search = vim.fn.input("Grep > ") });
+	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
