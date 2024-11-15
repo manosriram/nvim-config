@@ -84,6 +84,9 @@ vim.keymap.set("n", "<leader>K", function ()
 		builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+
 vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
     desc = "Toggle Spectre"
 })
