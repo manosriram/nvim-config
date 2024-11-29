@@ -4,7 +4,15 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    -- add any opts here
+				provider = "openai", -- Recommend using Claude
+				auto_suggestions_provider = "openai",
+				openai = {
+						endpoint = "https://api.openai.com/v1",
+						model = "gpt-4o",
+						timeout = 30000, -- Timeout in milliseconds
+						temperature = 0,
+						max_tokens = 4096,
+			},
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
