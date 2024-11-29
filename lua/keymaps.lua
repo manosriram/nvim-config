@@ -37,6 +37,7 @@ Nmap("<Leader>x", ":tabclose<CR>")
 Nrmap("f", "<Plug>(leap-forward)")
 Nrmap("F", "<Plug>(leap-backward)")
 Nmap("mm", ":b#<CR>")
+Nmap("<Leader>j", ":nohl<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
