@@ -16,12 +16,7 @@ return {
 		config = function()
 				local cmp = require('cmp')
 				cmp.setup({completeopt = 'menu,menuone,noinsert'})
-				local cmp_lsp = require("cmp_nvim_lsp")
-				local capabilities = vim.tbl_deep_extend(
-						"force",
-						{},
-						vim.lsp.protocol.make_client_capabilities(),
-						cmp_lsp.default_capabilities())
+				local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 				require("fidget").setup({})
 				require("mason").setup()
@@ -34,7 +29,6 @@ return {
 						},
 						handlers = {
 								function(server_name) -- default handler (optional)
-
 										require("lspconfig")[server_name].setup {
 												capabilities = capabilities
 										}
@@ -80,7 +74,6 @@ return {
 				})
 
 				vim.diagnostic.config({
-						-- update_in_insert = true,
 						float = {
 								focusable = false,
 								style = "minimal",

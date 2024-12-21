@@ -69,34 +69,12 @@ Nrmap("<Leader>gSp", ":G stash pop<CR>")
 Nrmap("<Leader>gSl", ":G stash list<CR>")
 
 -- move through quickfix window lsp references
-Nrmap("]q", ":cnext<CR>")
-Nrmap("[q", ":cprev<CR>")
-Nrmap("]Q", ":.cc<CR>")
-Nrmap("<C-w>o", ":copen<CR>")
-Nrmap("<C-w>c", ":cclose<CR>")
-vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.references() end, opts)
-
--- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", ";f", builtin.find_files, {})
-vim.keymap.set("n", ";g", builtin.git_files, {})
-vim.keymap.set("n", ";b", builtin.buffers, {})
-vim.keymap.set("n", "<leader>K", function ()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
-end)
+Nrmap("<A-j>", ":cnext<CR>")
+Nrmap("<A-k>", ":cprev<CR>")
+Nrmap("<A-o>", ":copen<CR>")
+Nrmap("<A-c>", ":cclose<CR>")
+Nmap("<A-h>", ":Telescope help_tags<CR>")
+vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.references() end)
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
-
-vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
-    desc = "Toggle Spectre"
-})
-vim.keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", {
-    desc = "Search current word"
-})
-vim.keymap.set("v", "<leader>sw", "<esc><cmd>lua require('spectre').open_visual()<CR>", {
-    desc = "Search current word"
-})
-vim.keymap.set("n", "<leader>sp", "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", {
-    desc = "Search on current file"
-})
