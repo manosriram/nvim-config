@@ -27,9 +27,9 @@ Nmap(",h", ":split<CR>")
 Nmap("<C-e>", ":set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>")
 Nmap("<Enter>", "o<ESC>")
 Nmap("z", "dd")
-Nmap("<C-b>", ":NvimTreeFocus<CR>")
-Nmap("<C-n>", ":NvimTreeToggle<CR>")
-Nmap("<C-f>", ":NvimTreeFindFileToggle<CR>")
+-- Nmap("<C-b>", ":NvimTreeFocus<CR>")
+-- Nmap("<C-n>", ":NvimTreeToggle<CR>")
+-- Nmap("<C-f>", ":NvimTreeFindFileToggle<CR>")
 Nmap("<Leader>l", ":tabnext<CR>")
 Nmap("<Leader>h", ":tabprev<CR>")
 Nmap("<Leader>t", ":tabnew<CR>")
@@ -69,12 +69,31 @@ Nrmap("<Leader>gSp", ":G stash pop<CR>")
 Nrmap("<Leader>gSl", ":G stash list<CR>")
 
 -- move through quickfix window lsp references
-Nrmap("<A-j>", ":cnext<CR>")
-Nrmap("<A-k>", ":cprev<CR>")
+Nrmap("]q", ":cnext<CR>")
+Nrmap("[q", ":cprev<CR>")
 Nrmap("<A-o>", ":copen<CR>")
 Nrmap("<A-c>", ":cclose<CR>")
 Nmap("<A-h>", ":Telescope help_tags<CR>")
 vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.references() end)
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<C-n>", function()
+	local MiniFiles = require("mini.files")
+	local _ = MiniFiles.close()
+		or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+	vim.defer_fn(function()
+		MiniFiles.reveal_cwd()
+	end, 30)
+end)
+
+vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
+    desc = "Toggle Spectre"
+})
+vim.keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", {
+    desc = "Search current word"
+})
+vim.keymap.set("v", "<leader>sw", "<esc><cmd>lua require('spectre').open_visual()<CR>", {
+    desc = "Search current word"
+})
+vim.keymap.set("n", "<leader>sp", "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", {
+    desc = "Search on current file"
+})
