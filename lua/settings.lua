@@ -30,7 +30,7 @@ vim.cmd([[
 
 	hi Visual term=reverse cterm=reverse guibg=White
 	set backspace=indent,eol,start
-	set guicursor=a:hor20-Cursor
+	"set guicursor=a:hor20-Cursor
 	set tabstop=2 softtabstop=2 shiftwidth=2
 	set noexpandtab
 	set splitbelow
