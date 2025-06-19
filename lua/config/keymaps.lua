@@ -28,9 +28,6 @@ Nmap(",h", ":split<CR>")
 Nmap("<C-e>", ":set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>")
 Nmap("<Enter>", "o<ESC>")
 Nmap("z", "dd")
--- Nmap("<C-b>", ":NvimTreeFocus<CR>")
--- Nmap("<C-n>", ":NvimTreeToggle<CR>")
--- Nmap("<C-f>", ":NvimTreeFindFileToggle<CR>")
 Nmap("<Leader>l", ":tabnext<CR>")
 Nmap("<Leader>h", ":tabprev<CR>")
 Nmap("<Leader>t", ":tabnew<CR>")
@@ -40,13 +37,7 @@ Nrmap("F", "<Plug>(leap-backward)")
 Nmap("mm", ":b#<CR>")
 Nmap("<Leader>j", ":nohl<CR>")
 Nmap("<Leader>q", ":make run<CR>", { noremap = true, silent = false })
-
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
--- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+Nrmap("<Leader>G", ":FzfLua grep<CR>")
 
 -- Navigator
 Map("n", "<C-h>", "<CMD>NavigatorLeft<CR>") Map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
@@ -75,7 +66,6 @@ Nrmap("]q", ":cnext<CR>")
 Nrmap("[q", ":cprev<CR>")
 Nrmap("<A-o>", ":copen<CR>")
 Nrmap("<A-c>", ":cclose<CR>")
-Nmap("<A-h>", ":Telescope help_tags<CR>")
 
 vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
