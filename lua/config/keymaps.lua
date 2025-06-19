@@ -1,4 +1,5 @@
 require("Navigator").setup()
+
 require("Navigator").left()
 require("Navigator").right()
 require("Navigator").up()
@@ -40,7 +41,6 @@ Nmap("mm", ":b#<CR>")
 Nmap("<Leader>j", ":nohl<CR>")
 Nmap("<Leader>q", ":make run<CR>", { noremap = true, silent = false })
 
-
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -76,17 +76,8 @@ Nrmap("[q", ":cprev<CR>")
 Nrmap("<A-o>", ":copen<CR>")
 Nrmap("<A-c>", ":cclose<CR>")
 Nmap("<A-h>", ":Telescope help_tags<CR>")
+
 vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.references() end)
-
-vim.keymap.set("n", "<C-n>", function()
-	local MiniFiles = require("mini.files")
-	local _ = MiniFiles.close()
-		or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-	vim.defer_fn(function()
-		MiniFiles.reveal_cwd()
-	end, 30)
-end)
-
 vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
     desc = "Toggle Spectre"
 })

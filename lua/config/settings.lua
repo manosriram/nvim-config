@@ -1,3 +1,5 @@
+require("config.statusline")
+--
 -- Highlight coloring
 vim.cmd('hi Visual cterm=NONE ctermbg=0 ctermfg=NONE')
 vim.cmd('hi Search cterm=NONE ctermbg=0 ctermfg=white')
