@@ -67,6 +67,12 @@ Nrmap("[q", ":cprev<CR>")
 Nrmap("<A-o>", ":copen<CR>")
 Nrmap("<A-c>", ":cclose<CR>")
 
+vim.g.mapleader = " "
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
 vim.keymap.set("n", "<Leader>r", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", {
     desc = "Toggle Spectre"
