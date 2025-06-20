@@ -33,6 +33,7 @@ return {
 				},
 				keymap = {
 					["<C-f>"] = {},
+					["<Tab>"] = { "select_and_accept" },
 				},
 				cmdline = {
 					enabled = false,
