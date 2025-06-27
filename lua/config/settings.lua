@@ -22,14 +22,6 @@ vim.cmd([[
 	filetype plugin on
 	set encoding=UTF-8
 
-	set bg=dark
-	set background=dark
-  let g:gruvbox_contrast_dark='hard'
-  let g:gruvbox_contrast_light='hard'
-	let g:gruvbox_contrast_dark = 'hard'
-
-	let base16colorspace=256
-
 	hi Visual term=reverse cterm=reverse guibg=White
 	set backspace=indent,eol,start
 	"set guicursor=a:hor20-Cursor
@@ -46,9 +38,9 @@ vim.cmd([[
 	set ttimeoutlen=100
 	set timeoutlen=3000
 	set t_Co=256
-	set termguicolors     " enable true colors support
 ]])
 
+	-- set termguicolors     " enable true colors support
 vim.g.go_doc_keywordprg_enabled = 0
 vim.g.go_auto_type_info = 1
 vim.g.to_imports_mode = 'gopls'
