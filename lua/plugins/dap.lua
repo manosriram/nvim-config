@@ -4,10 +4,19 @@ return {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
+			"mfussenegger/nvim-dap-python",
     },
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
+
+			-- Add to config function after dapui.setup()
+			local dap_python = require('dap-python')
+			dap_python.setup('/opt/homebrew/bin/python') -- or specify path to python with debugpy installed
+
+			-- Optional: Add Python-specific keymaps
+			vim.keymap.set('n', '<leader>dn', function() dap_python.test_method() end)
+			vim.keymap.set('n', '<leader>df', function() dap_python.test_class() end)
 
       -- Setup dap-ui
       dapui.setup()
@@ -51,11 +60,35 @@ return {
 					name = 'Launch',
 					type = 'codelldb',
 					request = 'launch',
-					program = '${workspaceFolder}/zig-out/bin/${workspaceFolderBasename}',
+					program = '${workspaceFolder}/zig-out/bin/recursive_descent_parser',
 					cwd = '${workspaceFolder}',
 					stopOnEntry = false,
 					args = {},
 				},
+			}
+
+			dap.adapters.java = {
+				type = 'server',
+				host = '127.0.0.1',
+				port = 5005,
+				timeout = 20000
+			}
+
+			dap.configurations.java = {
+				{
+					type = 'java',
+					request = 'attach',
+					name = "Debug (Attach) - Remote",
+					hostName = "127.0.0.1",
+					port = 5005,
+				},
+				{
+					type = 'java',
+					request = 'launch',
+					name = "Debug (Launch) - Current File",
+					mainClass = "${file}",
+					projectName = "${workspaceFolderBasename}",
+				}
 			}
 		end,
 	},

@@ -38,8 +38,6 @@ Nmap("mm", ":b#<CR>")
 Nmap("<Leader>j", ":nohl<CR>")
 Nmap("<Leader>q", ":make run<CR>", { noremap = true, silent = false })
 Nrmap("<Leader>G", ":FzfLua grep<CR>")
-Nrmap("<Leader>cl", ":colorscheme dayfox<CR>")
-Nrmap("<Leader>cd", ":colorscheme kanagawa-dragon<CR>")
 
 -- Navigator
 Map("n", "<C-h>", "<CMD>NavigatorLeft<CR>") Map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
