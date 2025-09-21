@@ -39,6 +39,11 @@ Nmap("<Leader>j", ":nohl<CR>")
 Nmap("<Leader>q", ":make run<CR>", { noremap = true, silent = false })
 Nrmap("<Leader>G", ":FzfLua grep<CR>")
 
+-- Toggle light and dark themes with <Leader>cl and <Leader>cd
+Nrmap("<Leader>cl", ":colorscheme dayfox<CR>") -- light theme
+Nrmap("<Leader>cd", ":colorscheme kanagawa-dragon<CR>") -- dark theme
+
+
 -- Navigator
 Map("n", "<C-h>", "<CMD>NavigatorLeft<CR>") Map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
 Map("n", "<C-k>", "<CMD>NavigatorUp<CR>")
