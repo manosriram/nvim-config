@@ -4,24 +4,13 @@ return {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
-			"mfussenegger/nvim-dap-python",
     },
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
 
-			-- Add to config function after dapui.setup()
-			local dap_python = require('dap-python')
-			dap_python.setup('/opt/homebrew/bin/python') -- or specify path to python with debugpy installed
-
-			-- Optional: Add Python-specific keymaps
-			vim.keymap.set('n', '<leader>dn', function() dap_python.test_method() end)
-			vim.keymap.set('n', '<leader>df', function() dap_python.test_class() end)
-
       -- Setup dap-ui
       dapui.setup()
-
-
 
       -- Auto open/close dap-ui
       dap.listeners.after.event_initialized["dapui_config"] = function()
