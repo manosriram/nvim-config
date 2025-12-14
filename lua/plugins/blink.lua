@@ -33,7 +33,9 @@ return {
 				},
 				keymap = {
 					["<C-f>"] = {},
-					["<Tab>"] = { "select_and_accept" },
+					["<Tab>"] = { "select_next", "fallback" },
+					["<S-Tab>"] = { "select_prev", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
 				},
 				cmdline = {
 					enabled = false,
